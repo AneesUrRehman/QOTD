@@ -12,7 +12,7 @@ buildscript {
     dependencies {
         classpath "org.grails:grails-gradle-plugin:$grailsVersion"
         classpath 'com.bertramlabs.plugins:asset-pipeline-gradle:2.1.1'
-classpath 'com.bmuschko:gradle-docker-plugin'
+        classpath 'com.bmuschko:gradle-docker-plugin:2.6.6'
     }
 }
 
@@ -23,7 +23,7 @@ plugins {
 
 version "0.1"
 group "simple.login"
-apply plugin: "com.bmuschko.docerk-remote-api"
+
 apply plugin: "spring-boot"
 apply plugin: "war"
 apply plugin: "asset-pipeline"
@@ -31,16 +31,8 @@ apply plugin: 'eclipse'
 apply plugin: 'idea'
 apply plugin: "org.grails.grails-web"
 apply plugin: "org.grails.grails-gsp"
-apply plugin: 'groovy'
 apply plugin: 'idea'
-apply from: "$rootDir/gradle/dependencies.gradle"
-apply from: "$rootDir/gradle/test-setup.gradle"
-apply from: "$rootDir/gradle/integration-test.gradle"
-apply from: "$rootDir/gradle/functional-test.gradle"
-apply from: "$rootDir/gradle/additional-artifacts.gradle"
-apply from: "$rootDir/gradle/publishing.gradle"
-apply from: "$rootDir/gradle/documentation.gradle"
-apply from: "$rootDir/gradle/release.gradle"
+apply plugin: "com.bmuschko.docker-remote-api"
 
 ext {
     grailsVersion = project.grailsVersion
